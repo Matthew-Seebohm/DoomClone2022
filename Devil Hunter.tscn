@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Textures/Cement floor texture.jpeg" type="Texture" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=2]
@@ -26,7 +26,12 @@ uv1_scale = Vector3( 0.2, 0.1, 0 )
 uv1_offset = Vector3( 1, 0, 0 )
 
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 0.204007, 0.205849, 0.244254 )
+extents = Vector3( 0.204007, 0.197682, 0.244254 )
+
+[sub_resource type="CubeMesh" id=9]
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 1, 1.00138, 1 )
 
 [node name="Devil Hunter" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.33772, 0 )
@@ -43,7 +48,8 @@ transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0 )
 shape = SubResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0 )
+transform = Transform( -0.84966, -0.084752, 0.520476, 0.515816, 0.0715598, 0.853705, -0.109598, 0.993829, -0.017085, 7.06462, 8.49268, -5.13629 )
+light_color = Color( 0.905882, 0.623529, 0.0823529, 1 )
 shadow_enabled = true
 
 [node name="Player" type="KinematicBody" parent="."]
@@ -138,7 +144,7 @@ transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
 shape = SubResource( 7 )
 
 [node name="Main roof" type="MeshInstance" parent="."]
-transform = Transform( 5, 0, 0, 0, -3.0598e-07, -0.1, 0, 7, -4.37114e-09, -0.964645, 3.87689, -3.0997 )
+transform = Transform( 5, 0, 0, 0, -3.0598e-07, -0.1, 0, 7, -4.37114e-09, -0.964645, 3.94212, -3.03229 )
 mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
@@ -146,5 +152,23 @@ material/0 = SubResource( 6 )
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Main roof/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.035243 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 1.36424e-12, 1, 0, 0.00256116, -0.024539 )
 shape = SubResource( 7 )
+
+[node name="Pillar1" type="MeshInstance" parent="."]
+transform = Transform( 0.7, 0, 0, 0, 2, 0, 0, 0, 0.7, -1.20205, 2.0779, 0 )
+mesh = SubResource( 9 )
+
+[node name="StaticBody" type="StaticBody" parent="Pillar1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pillar1/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="Pillar2" type="MeshInstance" parent="."]
+transform = Transform( 0.7, 0, 0, 0, 2, 0, 0, 0, 0.7, -1.12332, 2.0779, -5.54187 )
+mesh = SubResource( 9 )
+
+[node name="StaticBody" type="StaticBody" parent="Pillar2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pillar2/StaticBody"]
+shape = SubResource( 10 )
