@@ -1,7 +1,7 @@
 extends KinematicBody
 
 #Physics
-var movementSpeed = 6.0
+var movementSpeed = 9
 var jumpStrength = 3.5
 var gravity = 10.0
 
