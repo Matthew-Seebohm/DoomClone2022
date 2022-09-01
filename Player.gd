@@ -1,5 +1,8 @@
 extends KinematicBody
 
+signal health_updated(health)
+signal killed()
+
 #Physics
 var movementSpeed = 9
 var jumpStrength = 3.5
@@ -14,6 +17,10 @@ var lookSensitivity = 0.5
 var playerVelocity : Vector3 = Vector3()
 var mouseDelta : Vector2 = Vector2()
 
+export (float) var max_health = 100
+
+onready var health = max_health setget _set_health
+onready var Invun_Timer = $InvunTimer
 onready var camera = get_node("Camera")
 
 func _ready():
@@ -50,3 +57,21 @@ func _physics_process (delta):
 	playerVelocity = move_and_slide(playerVelocity, Vector3.UP)
 	if Input.is_action_pressed("jump") and is_on_floor():
 		playerVelocity.y = jumpStrength
+
+func damage(amount):
+	if Invun_Timer.is_stopped():
+		$Hitpointsfx.play()
+		Invun_Timer.start()
+		_set_health(health - amount)
+
+func kill():
+	pass
+
+func _set_health(value):
+	var prev_health = health
+	health = clamp(value, 0, max_health)
+	if health != prev_health:
+		emit_signal("health_updated", health)
+		if health == 0:
+			kill()
+			emit_signal("killed")
