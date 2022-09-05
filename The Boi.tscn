@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Textures/The Boi.jpeg" type="Texture" id=1]
+
+[node name="The Boi" type="Node2D"]
+
+[node name="TheBoi" type="Sprite" parent="."]
+position = Vector2( 527, 276 )
+scale = Vector2( 2.27, 1.09524 )
+texture = ExtResource( 1 )
