@@ -23,10 +23,8 @@ onready var health = max_health setget _set_health
 onready var Invun_Timer = $InvunTimer
 onready var camera = get_node("Camera")
 
-
-
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
 
 func _input (event):
 	if event is InputEventMouseMotion:
@@ -39,8 +37,6 @@ func _process (delta):
 	mouseDelta = Vector2()
 
 func _physics_process (delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	playerVelocity.x = 0
 	playerVelocity.z = 0
 	var input = Vector2()
