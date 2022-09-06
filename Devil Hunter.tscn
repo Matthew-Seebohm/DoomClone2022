@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Textures/Cement floor texture.jpeg" type="Texture" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Textures/Steel wall Texture.jpg" type="Texture" id=4]
 [ext_resource path="res://Textures/Red.jpeg" type="Texture" id=5]
 [ext_resource path="res://Sound/male_hurt7-48124.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Enemy.gd" type="Script" id=7]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 20, 20 )
@@ -41,7 +42,6 @@ extents = Vector3( 1, 1.00138, 1 )
 albedo_texture = ExtResource( 5 )
 
 [sub_resource type="CapsuleShape" id=13]
-height = 1.01084
 
 [node name="Devil Hunter" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.33772, 0 )
@@ -75,6 +75,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.248209, 0 )
 environment = ExtResource( 2 )
 current = true
 fov = 110.0
+
+[node name="playerScore" type="Label3D" parent="Player/Camera"]
 
 [node name="Invun Timer" type="Timer" parent="Player"]
 wait_time = 0.5
@@ -189,12 +191,14 @@ mesh = SubResource( 9 )
 [node name="CollisionShape" type="CollisionShape" parent="Pillar2/StaticBody"]
 shape = SubResource( 10 )
 
-[node name="Enemy1" type="CSGMesh" parent="."]
+[node name="Demon" type="KinematicBody" parent="."]
 transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, -0.3, 0, 0.2, -1.31134e-08, 0.970905, 0.886182, 0 )
+script = ExtResource( 7 )
+
+[node name="Enemy" type="CSGMesh" parent="Demon"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 1.77636e-15, 1, 0, 0, 0 )
 mesh = SubResource( 11 )
 material = SubResource( 12 )
 
-[node name="KinematicBody" type="KinematicBody" parent="Enemy1"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Enemy1/KinematicBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Demon"]
 shape = SubResource( 13 )
