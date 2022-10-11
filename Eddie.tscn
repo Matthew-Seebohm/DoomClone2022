@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Eddie.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Poor Eddie.jpg" type="Texture" id=2]
@@ -9,6 +9,8 @@ albedo_texture = ExtResource( 2 )
 [sub_resource type="CapsuleMesh" id=2]
 material = SubResource( 1 )
 mid_height = 0.8
+
+[sub_resource type="CapsuleShape" id=3]
 
 [node name="Eddie" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0 )
@@ -25,5 +27,7 @@ autostart = true
 [node name="Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 3 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

@@ -15,6 +15,9 @@ var playerVelocity : Vector3 = Vector3()
 var mouseDelta : Vector2 = Vector2()
 
 onready var camera = get_node("Camera")
+onready var bulletScene = preload("res://Bullet.tscn")
+onready var bulletSpawn = get_node("Camera/bulletSpawn")
+var ammoheavy : int = 15
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -29,6 +32,20 @@ func _process (delta):
 	rotation_degrees -= Vector3(0, rad2deg(mouseDelta.x), 0) * lookSensitivity * delta
 	mouseDelta = Vector2()
 	$Camera/playerScore.text = str(Global.current_score)
+	if Global.player_health <= 0:
+		print("Dead")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene("res://Lose.tscn")
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+		
+func shoot ():
+	var bullet = bulletScene.instance()
+	get_node("/root/Doom").add_child(bullet)
+	bullet.global_transform = bulletSpawn.global_transform
+	bullet.scale = Vector3(0.1,0.1,0.1)
+
+	ammoheavy -= 1
 
 func _physics_process (delta):
 	if Input.is_action_just_pressed("ui_cancel"):
