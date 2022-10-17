@@ -17,6 +17,7 @@ var mouseDelta : Vector2 = Vector2()
 onready var camera = get_node("Camera")
 onready var bulletScene = preload("res://Bullet.tscn")
 onready var bulletSpawn = get_node("Camera/bulletSpawn")
+onready var bulletSpawn2 = get_node("Camera/bulletSpawn2")
 var ammoheavy : int = 15
 
 func _ready():
@@ -38,13 +39,21 @@ func _process (delta):
 		get_tree().change_scene("res://Lose.tscn")
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+	if Input.is_action_just_pressed("secondary"):
+		Secondary()
 		
 func shoot ():
 	var bullet = bulletScene.instance()
-	get_node("/root/Doom").add_child(bullet)
+	get_node("/root/Devil Hunter").add_child(bullet)
 	bullet.global_transform = bulletSpawn.global_transform
-	bullet.scale = Vector3(0.1,0.1,0.1)
+	bullet.scale = Vector3(-0.1,-0.1,-0.1)
+	ammoheavy -= 1
 
+func Secondary ():
+	var bullet = bulletScene.instance()
+	get_node("/root/Devil Hunter").add_child(bullet)
+	bullet.global_transform = bulletSpawn2.global_transform
+	bullet.scale = Vector3(-0.1,-0.1,-0.1)
 	ammoheavy -= 1
 
 func _physics_process (delta):

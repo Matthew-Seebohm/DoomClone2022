@@ -1,6 +1,6 @@
 extends Area
 
-var speed : float = 30.0
+var speed : float = 320
 var damage : int = 1
 
 func _process (delta):
