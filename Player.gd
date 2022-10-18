@@ -33,6 +33,7 @@ func _process (delta):
 	rotation_degrees -= Vector3(0, rad2deg(mouseDelta.x), 0) * lookSensitivity * delta
 	mouseDelta = Vector2()
 	$Camera/playerScore.text = str(Global.current_score)
+	$Camera/playerhealth.text = str(Global.player_health)
 	if Global.player_health <= 0:
 		print("Dead")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

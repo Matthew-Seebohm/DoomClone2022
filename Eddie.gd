@@ -3,7 +3,7 @@ extends KinematicBody
 onready var nav = get_parent()
 var path = []
 var path_node = 0
-var speed = 8
+var speed = 15
 onready var player = $"../../Player"
 
 func _ready():
