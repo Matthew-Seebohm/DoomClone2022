@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://SceneChange.gd" type="Script" id=1]
 [ext_resource path="res://Quit.gd" type="Script" id=2]
 [ext_resource path="res://The Boi.gd" type="Script" id=3]
 [ext_resource path="res://Textures/Impact - Strive.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Textures/canvas (15).png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -14,19 +15,22 @@ font_data = ExtResource( 4 )
 [node name="Main Menu" type="Node2D"]
 
 [node name="Play Button" type="Button" parent="."]
-margin_left = 447.0
-margin_top = 191.0
-margin_right = 572.0
-margin_bottom = 266.0
+margin_left = 453.5
+margin_top = 357.125
+margin_right = 578.5
+margin_bottom = 432.125
 custom_fonts/font = SubResource( 1 )
 text = "Play"
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Quit" type="Button" parent="."]
-margin_left = 489.0
-margin_top = 277.0
-margin_right = 529.0
-margin_bottom = 297.0
+margin_left = 495.5
+margin_top = 443.125
+margin_right = 537.5
+margin_bottom = 470.125
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 script = ExtResource( 2 )
@@ -38,6 +42,14 @@ margin_right = 22.0
 margin_bottom = 14.0
 text = "The Boi"
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 541.5, 298.125 )
+scale = Vector2( 0.463379, 0.516246 )
+texture = ExtResource( 5 )
 
 [connection signal="pressed" from="Play Button" to="Play Button" method="_on_Play_Button_pressed"]
 [connection signal="pressed" from="Quit" to="Quit" method="_on_Quit_pressed"]

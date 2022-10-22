@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1-01 Give me a break.mp3-081fb752d8125c1694a9efd01924ddfb.mp3str"
+
+[deps]
+
+source_file="res://Sound/1-01 Give me a break.mp3"
+dest_files=[ "res://.import/1-01 Give me a break.mp3-081fb752d8125c1694a9efd01924ddfb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

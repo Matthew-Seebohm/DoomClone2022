@@ -18,7 +18,7 @@ onready var camera = get_node("Camera")
 onready var bulletScene = preload("res://Bullet.tscn")
 onready var bulletSpawn = get_node("Camera/bulletSpawn")
 onready var bulletSpawn2 = get_node("Camera/bulletSpawn2")
-var ammoheavy : int = 15
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -34,28 +34,33 @@ func _process (delta):
 	mouseDelta = Vector2()
 	$Camera/playerScore.text = str(Global.current_score)
 	$Camera/playerhealth.text = str(Global.player_health)
+	$Camera/ammo_heavy.text = str (Global.ammoheavy)
+	$Camera/ammo_light.text = str (Global.ammolight)
+	$Camera/ComboCount.text = str (Global.combocount)
 	if Global.player_health <= 0:
 		print("Dead")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene("res://Lose.tscn")
 	if Input.is_action_just_pressed("shoot"):
-		shoot()
+		if (Global.ammoheavy) >=1:
+			shoot()
 	if Input.is_action_just_pressed("secondary"):
-		Secondary()
+		if (Global.ammolight) >=1:
+			Secondary()
 		
 func shoot ():
 	var bullet = bulletScene.instance()
 	get_node("/root/Devil Hunter").add_child(bullet)
 	bullet.global_transform = bulletSpawn.global_transform
 	bullet.scale = Vector3(-0.1,-0.1,-0.1)
-	ammoheavy -= 1
+	(Global.ammoheavy) -= 1
 
 func Secondary ():
 	var bullet = bulletScene.instance()
 	get_node("/root/Devil Hunter").add_child(bullet)
 	bullet.global_transform = bulletSpawn2.global_transform
 	bullet.scale = Vector3(-0.1,-0.1,-0.1)
-	ammoheavy -= 1
+	(Global.ammolight) -= 1
 
 func _physics_process (delta):
 	if Input.is_action_just_pressed("ui_cancel"):
