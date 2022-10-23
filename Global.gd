@@ -1,6 +1,6 @@
 extends Node
 
-var current_score = 0
+var bluekeycard = false
 var player_health = 100
 var ammoheavy = 15
 var ammolight = 30

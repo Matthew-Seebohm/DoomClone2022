@@ -32,7 +32,7 @@ func _process (delta):
 	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, minCamVerticalAngle, maxCamVerticalAngle)
 	rotation_degrees -= Vector3(0, rad2deg(mouseDelta.x), 0) * lookSensitivity * delta
 	mouseDelta = Vector2()
-	$Camera/playerScore.text = str(Global.current_score)
+	$Camera/Bluekeycard.text = str(Global.bluekeycard)
 	$Camera/playerhealth.text = str(Global.player_health)
 	$Camera/ammo_heavy.text = str (Global.ammoheavy)
 	$Camera/ammo_light.text = str (Global.ammolight)

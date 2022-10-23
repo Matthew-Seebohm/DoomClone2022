@@ -1,4 +1,4 @@
-extends Spatial
+extends MeshInstance
 
 
 # Declare member variables here. Examples:
@@ -14,9 +14,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func _destroy():
+	queue_free()
 
-
-func _on_Area_body_entered(body):
-	if (body.name == "Player"):
-		Global.bluekeycard = true
-		queue_free()
+func _on_Area_area_entered(area):
+	if (area.name == "Player"):
+		if (Global.bluekeycard) == true:
+			if Input.is_action_just_pressed("Interact"):
+				_destroy()
