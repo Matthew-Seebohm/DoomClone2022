@@ -4,7 +4,7 @@ onready var nav = get_parent()
 var path = []
 var path_node = 0
 var speed = 15
-var enemy_health = 10
+var enemy_health = 2
 onready var player = $"../../Player"
 
 func _ready():
@@ -28,10 +28,11 @@ func _on_Timer_timeout():
 func _on_Area_body_entered(body):
 	if (body.name == "Player"):
 		Global.player_health -= 10
+		Global.combocount = 0
 
 func take_damage(damage):
 	print("ouch")
 	enemy_health -= 1
 	if enemy_health <=0:
-		(Global.combocount) +=1
 		queue_free()
+		(Global.combocount) +=1

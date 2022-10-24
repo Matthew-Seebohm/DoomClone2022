@@ -47,7 +47,10 @@ func _process (delta):
 	if Input.is_action_just_pressed("secondary"):
 		if (Global.ammolight) >=1:
 			Secondary()
-		
+			if (Global.SLASH) == true:
+				if (Global.ammolight) <=0:
+					get_tree().change_sene("res://Lose.tscn")
+
 func shoot ():
 	var bullet = bulletScene.instance()
 	get_node("/root/Devil Hunter").add_child(bullet)
