@@ -37,9 +37,9 @@ script = ExtResource( 2 )
 
 [node name="The Boi" type="Button" parent="."]
 margin_left = -38.0
-margin_top = -6.0
+margin_top = -7.0
 margin_right = 22.0
-margin_bottom = 14.0
+margin_bottom = 13.0
 text = "The Boi"
 script = ExtResource( 3 )
 __meta__ = {
