@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Textures/Impact - Strive.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[node name="Win" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 208.0
+margin_top = 224.0
+margin_right = 829.0
+margin_bottom = 286.0
+custom_colors/font_color = Color( 1, 0.0313726, 0.0313726, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Get Ready for the Next Batch"

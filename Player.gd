@@ -44,12 +44,16 @@ func _process (delta):
 	if Input.is_action_just_pressed("shoot"):
 		if (Global.ammoheavy) >=1:
 			shoot()
+			if (Global.SLASH) == true:
+				if (Global.ammoheavy) <=0:
+					get_tree().change_scene("res://Lose.tscn")
+
 	if Input.is_action_just_pressed("secondary"):
 		if (Global.ammolight) >=1:
 			Secondary()
 			if (Global.SLASH) == true:
 				if (Global.ammolight) <=0:
-					get_tree().change_sene("res://Lose.tscn")
+					get_tree().change_scene("res://Lose.tscn")
 
 func shoot ():
 	var bullet = bulletScene.instance()

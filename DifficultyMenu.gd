@@ -8,7 +8,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Default.pressed = Global.Default
 	$Slash.pressed = Global.SLASH
 
 
@@ -18,11 +17,9 @@ func _ready():
 #	pass
 
 
-func _on_Default_toggled(button_pressed):
-	Global.Default = button_pressed
-
 
 func _on_Slash_toggled(button_pressed):
+	print ("SLASH enabled")
 	Global.SLASH = button_pressed
 
 
