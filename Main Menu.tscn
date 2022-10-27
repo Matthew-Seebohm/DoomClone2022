@@ -12,45 +12,51 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 4 )
 
-[node name="Main Menu" type="Node2D"]
+[node name="Main Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="Play Button" type="Button" parent="."]
-margin_left = 453.5
-margin_top = 357.125
-margin_right = 578.5
-margin_bottom = 432.125
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 286.0
+margin_right = 1024.0
+margin_bottom = 313.0
+alignment = 1
+
+[node name="Play Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 436.0
+margin_right = 477.0
+margin_bottom = 27.0
 custom_fonts/font = SubResource( 1 )
 text = "Play"
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
-[node name="Quit" type="Button" parent="."]
-margin_left = 495.5
-margin_top = 443.125
-margin_right = 537.5
-margin_bottom = 470.125
+[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 481.0
+margin_right = 523.0
+margin_bottom = 27.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 script = ExtResource( 2 )
 
-[node name="The Boi" type="Button" parent="."]
-margin_left = -38.0
-margin_top = -7.0
-margin_right = 22.0
-margin_bottom = 13.0
+[node name="The Boi" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 527.0
+margin_right = 587.0
+margin_bottom = 27.0
 text = "The Boi"
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 541.5, 298.125 )
+[node name="Sprite" type="Sprite" parent="VBoxContainer/HBoxContainer"]
+position = Vector2( 558, -50 )
 scale = Vector2( 0.463379, 0.516246 )
 texture = ExtResource( 5 )
 
-[connection signal="pressed" from="Play Button" to="Play Button" method="_on_Play_Button_pressed"]
-[connection signal="pressed" from="Quit" to="Quit" method="_on_Quit_pressed"]
-[connection signal="pressed" from="The Boi" to="The Boi" method="_on_The_Boi_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Play Button" to="VBoxContainer/HBoxContainer/Play Button" method="_on_Play_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="VBoxContainer/HBoxContainer/Quit" method="_on_Quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/The Boi" to="VBoxContainer/HBoxContainer/The Boi" method="_on_The_Boi_pressed"]

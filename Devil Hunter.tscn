@@ -212,7 +212,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Hitpoint sfx" type="AudioStreamPlayer" parent="Player"]
+[node name="attackSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 6 )
 
 [node name="Pickup" parent="." instance=ExtResource( 5 )]
@@ -407,11 +407,50 @@ shape = SubResource( 7 )
 [node name="Eddie" parent="Navigation" instance=ExtResource( 7 )]
 transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, 1.31485, 1.66486, -2.32705 )
 
+[node name="Eddie4" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -19.6929, 1.66486, -2.32705 )
+
 [node name="Eddie3" parent="Navigation" instance=ExtResource( 7 )]
-transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -19.2556, 1.66486, 4.79303 )
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -21.6963, 1.66486, 4.79303 )
+
+[node name="Eddie7" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -16.438, 1.66486, 1.34141 )
 
 [node name="Eddie2" parent="Navigation" instance=ExtResource( 7 )]
-transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -18.9486, 1.66486, -6.50146 )
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -16.1167, 1.66486, -6.50146 )
+
+[node name="Eddie5" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -21.4334, 1.66486, -10.7045 )
+
+[node name="Eddie6" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -14.9066, 1.66486, -12.5004 )
+
+[node name="Eddie8" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -18.2213, 1.66486, -17.4838 )
+
+[node name="Eddie9" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -11.1797, 1.66486, -17.4838 )
+
+[node name="Eddie10" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -11.1797, 1.66486, -3.07738 )
+
+[node name="Eddie11" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -18.2213, 1.66486, 3.08627 )
+
+[node name="Eddie12" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -11.1797, 1.66486, 3.08627 )
+
+[node name="Eddie13" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -11.1797, 1.66486, 17.4927 )
+
+[node name="Eddie14" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -26.7519, 1.66486, -21.5466 )
+
+[node name="Eddie15" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -19.7103, 1.66486, -21.5466 )
+
+[node name="Eddie16" parent="Navigation" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 7.54979e-08, 0, -7.54979e-08, -0.5, -19.7103, 1.66486, -7.14025 )
 
 [node name="Give Me a Break" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
