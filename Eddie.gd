@@ -5,7 +5,10 @@ var path = []
 var path_node = 0
 var speed = 15
 var enemy_health = 2
+onready var ammoSource = preload ("res://Ammo.tscn")
+
 onready var player = $"../../Player"
+onready var ammoSpawn = get_node("ammoSpawn")
 
 func _ready():
 	pass # Replace with function body.
@@ -13,7 +16,7 @@ func _ready():
 func _physics_process(delta):
 	if path_node < path.size():
 		var direction = (path[path_node] - global_transform.origin)
-		if direction.length() < 0.3:
+		if direction.length() < 0.11:
 			path_node +=1
 		else:
 			move_and_slide(direction.normalized() * speed, Vector3.UP)
@@ -27,7 +30,7 @@ func _on_Timer_timeout():
 
 func _on_Area_body_entered(body):
 	if (body.name == "Player"):
-		Global.player_health -= 50
+		Global.player_health -= 10
 		Global.combocount = 0
 
 func take_damage(damage):
@@ -36,3 +39,6 @@ func take_damage(damage):
 	if enemy_health <=0:
 		queue_free()
 		(Global.combocount) +=1
+		var ammo = ammoSource.instance()
+		get_node("/root/Devil Hunter").add_child(ammo)
+		ammoSource.global_transform = ammoSpawn.global_transform
