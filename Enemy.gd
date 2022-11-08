@@ -1,5 +1,8 @@
 extends KinematicBody
 
+#these are the remains of a system when I wanted to have an unvul timer for taking damage,
+#now I just use the script "Eddie"
+
 var speed = 500
 
 func _ready():

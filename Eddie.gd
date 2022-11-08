@@ -32,19 +32,22 @@ func move_to(target_pos):
 func _on_Timer_timeout():
 	move_to(player.global_transform.origin)
 
-#if the player enters the enemy'sbody, takes away ten from the player hea;th value in the global script
+#if the player enters the enemy'sbody, takes away ten from the player health value in the global script
 func _on_Area_body_entered(body):
 	if (body.name == "Player"):
 		Global.player_health -= 10
 		Global.combocount = 0
 
-
+#if the enemy collided with a bullet, the enemy health value is decreased
 func take_damage(damage):
 	print("ouch")
 	enemy_health -= 1
+#if the enemy health equals zero, delete the enemy and spawn an ammo box
 	if enemy_health <=0:
 		queue_free()
 		(Global.combocount) +=1
 		var ammo = ammoSource.instance()
 		get_node("/root/Devil Hunter").add_child(ammo)
 		ammoSource.global_transform = ammoSpawn.global_transform
+#currently the ammo box only spawns in one location and not where the enemy dies, 
+#I've tried to make it spawn using similar means to the shooting mechanic, but to no avail
