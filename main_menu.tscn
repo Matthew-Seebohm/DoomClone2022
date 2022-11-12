@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://SceneChange.gd" type="Script" id=1]
-[ext_resource path="res://Quit.gd" type="Script" id=2]
-[ext_resource path="res://The Boi.gd" type="Script" id=3]
-[ext_resource path="res://Textures/Impact - Strive.otf" type="DynamicFontData" id=4]
-[ext_resource path="res://Textures/canvas (15).png" type="Texture" id=5]
+[ext_resource path="res://scene_change.gd" type="Script" id=1]
+[ext_resource path="res://the_boi.gd" type="Script" id=2]
+[ext_resource path="res://quit.gd" type="Script" id=3]
+[ext_resource path="res://Textures/canvas (15).png" type="Texture" id=4]
+[ext_resource path="res://Textures/Impact - Strive.otf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [node name="Main Menu" type="Control"]
 anchor_right = 1.0
@@ -43,19 +43,19 @@ margin_right = 523.0
 margin_bottom = 27.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="The Boi" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 527.0
 margin_right = 587.0
 margin_bottom = 27.0
 text = "The Boi"
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="VBoxContainer/HBoxContainer"]
 position = Vector2( 549, -47 )
 scale = Vector2( 0.490234, 0.569593 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Play Button" to="VBoxContainer/HBoxContainer/Play Button" method="_on_Play_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="VBoxContainer/HBoxContainer/Quit" method="_on_Quit_pressed"]

@@ -12,4 +12,4 @@ func _on_Slash_toggled(button_pressed):
 
 #this function simply changes the scene from trhe difficulty menu to the main game, its very common for menus
 func _on_Button_pressed():
-	get_tree().change_scene("res://Devil Hunter.tscn")
+	get_tree().change_scene("res://devil_hunter.tscn")

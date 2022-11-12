@@ -6,7 +6,7 @@ extends MeshInstance
 func _process(delta):
 	if Global.finish == true:
 		print ("Entered")
-		if (Global.bluekeycard) == true:
+		if (Global.blue_keycard) == true:
 			print ("Bluekeycard")
 			if Input.is_action_pressed("Interact"):
 				print ("Destroy")

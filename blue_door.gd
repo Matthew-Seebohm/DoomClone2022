@@ -10,22 +10,22 @@ func _destroy():
 #the area.
 func _on_Area_area_entered(area):
 	print ("good")
-	Global.Locked_door = true
+	Global.locked_door = true
 
 #similar to entering the area for the first time, when exiting the area the variable is set to false, so the player
 #can't open the door from anywhere on the map
 func _on_Area_area_exited(area):
 	print ("better")
-	Global.Locked_door = false
+	Global.locked_door = false
 
 #this is the "if" statement string that makes sure the player has all the right requirements for opening the door.
 #first, if the true/false variable for the area is set to false, the player can moe onto the next requirement.
 #if the player has picked up the keycard, move onto the last requirement, which is the input for interacting.
 #after that the script runs the destroy function to open the door
 func _process(delta):
-	if Global.Locked_door == true:
+	if Global.locked_door == true:
 		print ("Entered")
-		if (Global.bluekeycard) == true:
+		if (Global.blue_keycard) == true:
 			print ("Bluekeycard")
 			if Input.is_action_pressed("Interact"):
 				print ("Destroy")
